@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CSB Software - Our Games Collection">
+    <meta name="keywords" content="CSB Software, game development, indie games, game list, Steam, Itch.io">
+    <meta name="author" content="CSB Software">
+    <title>CSB Software - Our Games</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for Inter font and background */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Dark background for game dev feel */
+            color: #e2e8f0; /* Light text color */
+        }
+        /* Gradient for buttons and highlights */
+        .btn-gradient {
+            background-image: linear-gradient(to right, #6366f1, #8b5cf6, #ec4899);
+            transition: all 0.3s ease;
+        }
+        .btn-gradient:hover {
+            background-image: linear-gradient(to right, #ec4899, #8b5cf6, #6366f1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        /* Game tile styling */
+        .game-tile {
+            display: flex;
+            flex-direction: column; /* Default to column on small screens */
+            background-color: #2d3748; /* Slightly lighter dark background for tiles */
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* shadow-xl */
+            overflow: hidden;
+            border: 1px solid #4a5568; /* border-gray-700 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .game-tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+        }
+        @media (min-width: 768px) { /* md breakpoint */
+            .game-tile {
+                flex-direction: row; /* Horizontal on medium and larger screens */
+            }
+        }
+        .game-tile-image {
+            flex-shrink: 0; /* Prevent image from shrinking */
+            width: 100%; /* Full width on small screens */
+            height: 200px; /* Fixed height for image on small screens */
+            object-fit: cover;
+        }
+        @media (min-width: 768px) { /* md breakpoint */
+            .game-tile-image {
+                width: 250px; /* Fixed width for image on larger screens */
+                height: 250px; /* Fixed height for image on larger screens */
+            }
+        }
+        .game-tile-content {
+            padding: 1.5rem; /* p-6 */
+            flex-grow: 1; /* Allow content to take remaining space */
+        }
+        .social-icon {
+            transition: transform 0.2s ease-in-out;
+        }
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YK0LP4TEFD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YK0LP4TEFD');
+    </script>
+    <!-- AdSense Script (from your original code) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7415667802447961" crossorigin="anonymous"></script>
+    <!-- Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="antialiased">
+    <!-- Header/Navigation (Copied from main site) -->
+    <header class="bg-gray-900 shadow-lg py-4 px-6 md:px-12">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-extrabold text-indigo-500 tracking-wider rounded-md p-2 hover:text-indigo-400 transition-colors">
+                CSB Software
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="games.html" class="text-gray-300 hover:text-white text-lg font-medium transition-colors">Games</a>
+                <a href="apps.html" class="text-gray-300 hover:text-white text-lg font-medium transition-colors">Apps</a>
+                <a style="display:none;" href="index.html#all-projects" class="text-gray-300 hover:text-white text-lg font-medium transition-colors">All Projects</a>
+                <a href="index.html#about" class="text-gray-300 hover:text-white text-lg font-medium transition-colors">About Us</a>
+                <a style="display:none;" href="index.html#socials" class="text-gray-300 hover:text-white text-lg font-medium transition-colors">Socials</a>
+            </div>
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-50 flex flex-col items-center justify-center space-y-8">
+            <button id="close-mobile-menu" class="absolute top-6 right-6 text-gray-300 hover:text-white focus:outline-none">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <a href="games.html" class="text-gray-300 hover:text-white text-3xl font-bold transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Games</a>
+            <a href="apps.html" class="text-gray-300 hover:text-white text-3xl font-bold transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Apps</a>
+            <a style="display:none;" href="index.html#all-projects" class="text-gray-300 hover:text-white text-3xl font-bold transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">All Projects</a>
+            <a href="index.html#about" class="text-gray-300 hover:text-white text-3xl font-bold transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About Us</a>
+            <a style="display:none;" href="index.html#socials" class="text-gray-300 hover:text-white text-3xl font-bold transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Socials</a>
+        </div>
+    </header>
+
+    <main class="py-16 bg-gray-800">
+        <div class="container mx-auto px-6 md:px-12">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-center text-white mb-12">
+                Our Games
+            </h1>
+
+            <div class="space-y-10">
+                <!-- Game Tile 1: Project: [Your Next Game] -->
+                <div class="game-tile">
+                    <img style="height:auto;width:250px;" src="images/Undying Harvest Vertical.png" alt="Undying Harvest Logo" class="game-tile-image">
+                    <div class="game-tile-content">
+                        <h2 class="text-4xl font-bold text-green-400 mb-3">Undying Harvest</h2>
+                        <p class="text-gray-300 text-lg mb-4">
+                            The pesky undead are after your crops! Do you have what it takes to defend your farm against these hordes of undead?
+                        </p>
+                        <div class="flex flex-wrap gap-4 mt-4">
+                            <!-- Link to Steam (if applicable) -->
+                            <a href="https://store.steampowered.com/app/2805580/Undying_Harvest/" target="_blank" rel="noopener noreferrer"
+                               class="btn-gradient text-white font-bold py-2 px-6 rounded-lg text-md flex items-center gap-2">
+                                <i class="fab fa-steam"></i> Steam Page
+                            </a>
+                            <!-- Link to Itch.io (if applicable) -->
+                            <a href="https://csbgames.itch.io/undying-harvest" target="_blank" rel="noopener noreferrer"
+                               class="btn-gradient text-white font-bold py-2 px-6 rounded-lg text-md flex items-center gap-2">
+                                <i class="fab fa-itch-io"></i> Itch.io Page
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Tile 2: Future Game Concept -->
+                <div style="display:none;" class="game-tile">
+                    <img src="https://placehold.co/250x250/2b6cb0/ffffff?text=Game+Logo+2" alt="Future Game Concept Logo" class="game-tile-image">
+                    <div class="game-tile-content">
+                        <h2 class="text-4xl font-bold text-yellow-400 mb-3">Future Game Concept</h2>
+                        <p class="text-gray-300 text-lg mb-4">
+                            We're currently exploring innovative gameplay mechanics and narrative structures for our next big idea. Expect a unique blend of strategy and storytelling.
+                        </p>
+                        <div class="flex flex-wrap gap-4 mt-4">
+                            <span class="bg-gray-600 text-gray-300 font-bold py-2 px-6 rounded-lg text-md">
+                                Ideas Welcome
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Tile 3: Arcade Adventure -->
+                <div style="display:none;" class="game-tile">
+                    <img src="https://placehold.co/250x250/805ad5/ffffff?text=Game+Logo+3" alt="Arcade Title Logo" class="game-tile-image">
+                    <div class="game-tile-content">
+                        <h2 class="text-4xl font-bold text-purple-400 mb-3">Arcade Adventure</h2>
+                        <p class="text-gray-300 text-lg mb-4">
+                            A thrilling, retro-inspired arcade experience designed for quick bursts of fun and high-score chasing. Master challenging levels and unlock new abilities!
+                        </p>
+                        <div class="flex flex-wrap gap-4 mt-4">
+                            <span class="bg-gray-600 text-gray-300 font-bold py-2 px-6 rounded-lg text-md">
+                                In Development
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more game tiles here as needed -->
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Copied from main site) -->
+    <footer class="bg-gray-900 py-8 px-6 md:px-12 text-center text-gray-500 text-sm">
+        <div class="container mx-auto">
+            <p>&copy; 2024 CSB Software. All rights reserved.</p>
+            <p class="mt-2">Crafted with passion for gamers and creators everywhere.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links (adjusted for relative paths)
+        document.querySelectorAll('a[href^="index.html#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Only prevent default if the target is on the same page
+                if (this.hostname === window.location.hostname && this.pathname === window.location.pathname) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').split('#')[1];
+                    document.querySelector(`#${targetId}`).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Close mobile menu when a link is clicked inside it
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
