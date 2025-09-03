@@ -3,29 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CSB Software - Crafting Immersive Game Experiences">
+    <meta name="description" content="CSB Software - Forging Immersive Game Experiences">
     <meta name="keywords" content="CSB Software, game development, indie games, 5e2024 Builder, game studio, apps">
     <meta name="author" content="CSB Software">
-    <title>CSB Software - Crafting Digital Worlds</title>
+    <title>CSB Software - Forging Digital Worlds</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+    
     <style>
         /* Custom styles for Inter font and background */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #1a202c; /* Dark background for game dev feel */
-            color: #e2e8f0; /* Light text color */
+            font-family: 'Merriweather', serif;
+            background-color: #2c2c2c; /* Dark stone-like background */
+            color: #d1d1d1; /* Light gray for readability */
+        }
+		h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cinzel', serif;
         }
         /* Gradient for buttons and highlights */
         .btn-gradient {
-            background-image: linear-gradient(to right, #6366f1, #8b5cf6, #ec4899);
+            background-image: linear-gradient(to right, #a0522d, #c0a068, #a0522d);
             transition: all 0.3s ease;
         }
         .btn-gradient:hover {
-            background-image: linear-gradient(to right, #ec4899, #8b5cf6, #6366f1);
+            background-image: linear-gradient(to right, #c0a068, #a0522d, #c0a068);
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
+		 .text-accent {
+            color: #c0a068; /* Bronze color */
+        }
+		
+		
+        
+
+        /* Project/Tile card "carved stone" effect */
+        .project-card, .app-card {
+            background-color: #3b3b3b;
+            border: 2px solid #5a5a5a;
+            border-radius: 0.75rem;
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.5),
+                inset 0 0 10px rgba(255, 255, 255, 0.1); /* Inset for an 'embossed' look */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            aspect-ratio: 1 / 1;
+            text-align: center;
+            text-decoration: none;
+        }
+        .project-card:hover, .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.7),
+                inset 0 0 15px rgba(255, 255, 255, 0.15);
+        }
+		
         /* Project/Tile card hover effect and square aspect ratio */
         .project-card, .app-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -64,15 +103,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="antialiased">
-    <!-- Header/Navigation -->
-    <header class="bg-gray-900 shadow-lg py-4 px-6 md:px-12">
+    <!-- Header -->
+    <header class="bg-[#1e1e1e] shadow-lg py-4 px-6 md:px-12 fixed top-0 left-0 right-0 z-50">
         <nav class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-3xl font-extrabold text-indigo-500 tracking-wider rounded-md p-2 hover:text-indigo-400 transition-colors">
+            <a href="#" class="text-3xl font-extrabold text-accent tracking-wider rounded-md p-2 hover:text-white transition-colors">
                 CSB Software
             </a>
             <div class="hidden md:flex space-x-8">
                 <a href="games.html" class="text-gray-300 hover:text-white text-lg font-medium transition-colors">Games</a>
                 <a href="apps.html" class="text-gray-300 hover:text-white text-lg font-medium transition-colors">Apps</a>
+				<a href="upcoming.html" class="text-gray-300 hover:text-white text-lg font-medium transition-colors">Upcoming Projects</a>
                 <a href="#about" class="text-gray-300 hover:text-white text-lg font-medium transition-colors">About Us</a>
                 <a style="display:none;" href="#socials" class="text-gray-300 hover:text-white text-lg font-medium transition-colors">Socials</a>
             </div>
@@ -92,6 +132,7 @@
             </button>
             <a href="games.html" class="text-gray-300 hover:text-white text-3xl font-bold transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Games</a>
             <a href="apps.html" class="text-gray-300 hover:text-white text-3xl font-bold transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Apps</a>
+			<a href="upcoming.html" class="text-gray-300 hover:text-white text-3xl font-bold transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Upcoming Projects</a>
             <a href="#about" class="text-gray-300 hover:text-white text-3xl font-bold transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About Us</a>
             <a style="display:none;" href="#socials" class="text-gray-300 hover:text-white text-3xl font-bold transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Socials</a>
         </div>
@@ -104,7 +145,7 @@
             <!-- Overlay for better text readability -->
             <div class="absolute inset-0 bg-black opacity-60"></div>
             <div class="relative z-10 p-6 max-w-4xl mx-auto">
-                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-white mb-6 animate-pulse">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-white mb-6">
                     CSB Software
                 </h1>
                 <p class="text-xl md:text-3xl text-gray-300 mb-10">
@@ -117,34 +158,34 @@
         </section>
 
         <!-- Games Section -->
-        <section id="games" class="py-16 bg-gray-800">
+        <section id="games" class="py-16 bg-[#2c2c2c]">
             <div class="container mx-auto px-6 md:px-12">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-center text-white mb-12">
+                <h2 class="text-5xl md:text-6xl font-extrabold text-center text-accent mb-12 section-heading">
                     Our Games
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     <!-- Game Card 1: Undying Harvest -->
                     <a href="https://store.steampowered.com/app/2805580/Undying_Harvest/?curator_clanid=4777282" target="_blank" rel="noopener noreferrer"
-					   class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden border border-gray-700">
+                        class="project-card rounded-xl shadow-xl overflow-hidden">
                         <img src="images/Undying Harvest Horizontal.png" alt="Undying Harvest" class="w-full h-auto max-w-[80%] max-h-[80%] object-contain mb-2">
                         <h3 class="text-3xl font-bold text-green-400">Undying Harvest</h3>
                     </a>
 
                     <!-- Game Card 2: Placeholder for Future Game -->
-                    <div style="display:none;" class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden border border-gray-700">
+                    <div style="display:none;" class="project-card rounded-xl shadow-xl overflow-hidden">
                         <img src="https://placehold.co/600x600/2b6cb0/ffffff?text=Future+Game+Concept+Logo" alt="Future Game Concept Logo" class="w-full h-auto max-w-[80%] max-h-[80%] object-contain mb-2">
                         <h3 class="text-3xl font-bold text-yellow-400">Future Game Concept</h3>
                         <span class="text-gray-500 text-lg mt-2">Ideas Welcome</span>
                     </div>
 
                     <!-- Add more game cards here as needed -->
-                    <div style="display:none;" class="project-card bg-gray-900 rounded-xl shadow-xl overflow-hidden border border-gray-700">
+                    <div style="display:none;" class="project-card rounded-xl shadow-xl overflow-hidden">
                         <img src="https://placehold.co/600x600/805ad5/ffffff?text=Arcade+Title+Logo" alt="Arcade Title Logo" class="w-full h-auto max-w-[80%] max-h-[80%] object-contain mb-2">
                         <h3 class="text-3xl font-bold text-purple-400">Arcade Adventure</h3>
                         <span class="text-gray-500 text-lg mt-2">In Development</span>
                     </div>
                 </div>
-				<div class="text-center mt-12">
+                <div class="text-center mt-12">
                     <a href="games.html" class="btn-gradient text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg uppercase tracking-wide">
                         View All Games
                     </a>
@@ -153,54 +194,68 @@
         </section>
 
         <!-- Apps Section -->
-        <section id="apps" class="py-16 bg-gray-900">
+        <section id="apps" class="py-16 bg-[#262626]">
             <div class="container mx-auto px-6 md:px-12">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-center text-white mb-12">
+                <h2 class="text-5xl md:text-6xl font-extrabold text-center text-accent mb-12 section-heading">
                     Our Apps
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     <!-- App Card 1: 5e2024 Builder -->
                     <a href="https://birddie721.github.io/5e2024Builder/" target="_blank" rel="noopener noreferrer"
-                       class="app-card bg-gray-800 rounded-xl shadow-xl overflow-hidden border border-gray-700">
+                        class="app-card rounded-xl shadow-xl overflow-hidden">
                         <img src="https://exn6yww6zqg.exactdn.com/wp-content/uploads/2025/01/5e-2024-Compatible-Logo-NO-SHADOW-used-with-permission-AAW-Games.png" alt="5e2024 Builder Logo" class="w-full h-auto max-w-[80%] max-h-[80%] object-contain mb-2">
                         <h3 class="text-3xl font-bold text-indigo-400">5e2024 Builder</h3>
                     </a>
 
                     <!-- App Card 2: Placeholder for New App -->
-                    <div style="display:none;" class="app-card bg-gray-800 rounded-xl shadow-xl overflow-hidden border border-gray-700">
+                    <div style="display:none;" class="app-card rounded-xl shadow-xl overflow-hidden">
                         <img src="https://placehold.co/600x600/5a67d8/ffffff?text=Utility+App+Logo" alt="Utility App Logo" class="w-full h-auto max-w-[80%] max-h-[80%] object-contain mb-2">
                         <h3 class="text-3xl font-bold text-blue-400">Utility App: [New Tool]</h3>
                         <span class="text-gray-500 text-lg mt-2">Coming Soon!</span>
                     </div>
                     <!-- Add more app cards here as needed -->
                 </div>
-				<div class="text-center mt-12">
+                <div class="text-center mt-12">
                     <a href="apps.html" class="btn-gradient text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg uppercase tracking-wide">
                         View All Apps
                     </a>
                 </div>
             </div>
         </section>
+		
+		<!-- Upcoming -->
+        <section id="about" class="py-16 bg-[#2c2c2c]">
+            <div class="container mx-auto px-6 md:px-12 text-center max-w-3xl">
+				<h2 class="text-5xl font-extrabold text-accent mb-6 section-heading">
+                    View all upcoming games and software
+                </h2>
+                <div class="text-center mt-12">
+                    <a href="upcoming.html" class="btn-gradient text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg uppercase tracking-wide">
+                        Upcoming
+                    </a>
+                </div>
+            </div>
+        </section>
 
         <!-- About Us Section -->
-        <section id="about" class="py-16 bg-gray-800">
+        <section id="about" class="py-16 bg-[#262626]">
             <div class="container mx-auto px-6 md:px-12 text-center max-w-3xl">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-8">
+                <h2 class="text-5xl font-extrabold text-accent mb-6 section-heading">
                     About CSB Software
                 </h2>
-                <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
+                <p class="text-lg text-gray-300 leading-relaxed mb-6">
                     At CSB Software, we are passionate about creating engaging and memorable interactive experiences. Founded with a vision to blend innovative mechanics with compelling narratives, we strive to develop games and applications that resonate with users long after they've finished playing.
                 </p>
-                <p class="text-lg md:text-xl text-gray-300 leading-relaxed">
+                <p class="text-lg text-gray-300 leading-relaxed mb-6">
                     From intricate role-playing tools to action-packed adventures, our team is dedicated to pushing the boundaries of what's possible in digital entertainment. Join us on our journey as we continue to craft the next generation of immersive worlds and useful tools.
                 </p>
             </div>
         </section>
 
         <!-- Socials Section -->
-        <section id="socials" class="py-16 bg-gray-900">
+        <section id="socials" class="py-16 bg-[#2c2c2c]">
             <div class="container mx-auto px-6 md:px-12 text-center max-w-2xl">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-8">
+                <h2 class="text-5xl font-extrabold text-accent mb-12 section-heading">
                     Connect With Us
                 </h2>
                 <p class="text-lg md:text-xl text-gray-300 mb-10">
@@ -232,7 +287,7 @@
                         <span class="block text-lg mt-2">Itch IO</span>
                     </a>
 					<!-- Twitch -->
-                    <a style="display:none;" href="" target="_blank" rel="noopener noreferrer"
+                    <a href="https://www.twitch.tv/csbsoftware" target="_blank" rel="noopener noreferrer"
                         class="social-icon text-gray-400 hover:text-violet-300 transition-colors">
                         <i class="fab fa-twitch text-6xl"></i>
                         <span class="block text-lg mt-2">Twitch</span>
@@ -249,10 +304,10 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 py-8 px-6 md:px-12 text-center text-gray-500 text-sm">
+    <footer class="bg-[#1e1e1e] py-8 px-6 md:px-12 text-center text-gray-500 text-sm">
         <div class="container mx-auto">
             <p>&copy; 2025 CSB Software. All rights reserved.</p>
-            <p class="mt-2">Crafted with passion for gamers and creators everywhere.</p>
+            <p class="mt-2">Forged in the heart of the mountain.</p>
         </div>
     </footer>
 

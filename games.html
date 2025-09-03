@@ -9,64 +9,69 @@
     <title>CSB Software - Our Games</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
     <style>
-        /* Custom styles for Inter font and background */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #1a202c; /* Dark background for game dev feel */
-            color: #e2e8f0; /* Light text color */
+            font-family: 'Merriweather', serif;
+            background-color: #2c2c2c; /* Dark stone-like background */
+            color: #d1d1d1; /* Light gray for readability */
         }
-        /* Gradient for buttons and highlights */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cinzel', serif;
+        }
         .btn-gradient {
-            background-image: linear-gradient(to right, #6366f1, #8b5cf6, #ec4899);
+            background-image: linear-gradient(to right, #a0522d, #c0a068, #a0522d); /* Bronze-gold gradient */
             transition: all 0.3s ease;
         }
         .btn-gradient:hover {
-            background-image: linear-gradient(to right, #ec4899, #8b5cf6, #6366f1);
+            background-image: linear-gradient(to right, #c0a068, #a0522d, #c0a068);
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
-        /* Game tile styling */
+        .text-accent {
+            color: #c0a068; /* Bronze color */
+        }
         .game-tile {
             display: flex;
             flex-direction: column; /* Default to column on small screens */
-            background-color: #2d3748; /* Slightly lighter dark background for tiles */
-            border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* shadow-xl */
+            background-color: #3b3b3b;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
             overflow: hidden;
-            border: 1px solid #4a5568; /* border-gray-700 */
+            border: 2px solid #5a5a5a;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .game-tile:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
-        }
-        @media (min-width: 768px) { /* md breakpoint */
+
+        @media (min-width: 768px) {
             .game-tile {
-                flex-direction: row; /* Horizontal on medium and larger screens */
+                flex-direction: row;
             }
         }
         .game-tile-image {
-            flex-shrink: 0; /* Prevent image from shrinking */
-            width: 100%; /* Full width on small screens */
-            height: 200px; /* Fixed height for image on small screens */
+            flex-shrink: 0;
+            width: 100%;
+            height: 200px;
             object-fit: cover;
         }
-        @media (min-width: 768px) { /* md breakpoint */
+        @media (min-width: 768px) {
             .game-tile-image {
-                width: 250px; /* Fixed width for image on larger screens */
-                height: 250px; /* Fixed height for image on larger screens */
+                width: 250px;
+                height: 250px;
             }
         }
         .game-tile-content {
-            padding: 1.5rem; /* p-6 */
-            flex-grow: 1; /* Allow content to take remaining space */
+            padding: 1.5rem;
+            flex-grow: 1;
         }
         .social-icon {
             transition: transform 0.2s ease-in-out;
+            color: #d1d1d1;
         }
         .social-icon:hover {
             transform: scale(1.1);
+            color: #c0a068;
         }
     </style>
     <!-- Google tag (gtag.js) -->
@@ -77,26 +82,27 @@
         gtag('js', new Date());
         gtag('config', 'G-YK0LP4TEFD');
     </script>
-    <!-- AdSense Script (from your original code) -->
+    <!-- AdSense Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7415667802447961" crossorigin="anonymous"></script>
     <!-- Font Awesome for Social Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0V4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="antialiased">
-    <!-- Header/Navigation (Copied from main site) -->
-    <header class="bg-gray-900 shadow-lg py-4 px-6 md:px-12">
+    <!-- Header -->
+    <header class="bg-[#1e1e1e] shadow-lg py-4 px-6 md:px-12">
         <nav class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-3xl font-extrabold text-indigo-500 tracking-wider rounded-md p-2 hover:text-indigo-400 transition-colors">
+            <a href="index.html" class="text-3xl font-extrabold text-accent tracking-wider rounded-md p-2 transition-colors">
                 CSB Software
             </a>
             <div class="hidden md:flex space-x-8">
                 <a href="games.html" class="text-gray-300 hover:text-white text-lg font-medium transition-colors">Games</a>
                 <a href="apps.html" class="text-gray-300 hover:text-white text-lg font-medium transition-colors">Apps</a>
+				<a href="upcoming.html" class="text-gray-300 hover:text-white text-lg font-medium transition-colors">Upcoming Projects</a>
                 <a style="display:none;" href="index.html#all-projects" class="text-gray-300 hover:text-white text-lg font-medium transition-colors">All Projects</a>
                 <a href="index.html#about" class="text-gray-300 hover:text-white text-lg font-medium transition-colors">About Us</a>
                 <a style="display:none;" href="index.html#socials" class="text-gray-300 hover:text-white text-lg font-medium transition-colors">Socials</a>
             </div>
-            <!-- Mobile Menu Button (Hamburger) -->
+            <!-- Mobile Menu Button -->
             <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -112,18 +118,18 @@
             </button>
             <a href="games.html" class="text-gray-300 hover:text-white text-3xl font-bold transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Games</a>
             <a href="apps.html" class="text-gray-300 hover:text-white text-3xl font-bold transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Apps</a>
+			<a href="upcoming.html" class="text-gray-300 hover:text-white text-3xl font-bold transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Upcoming Projects</a>
             <a style="display:none;" href="index.html#all-projects" class="text-gray-300 hover:text-white text-3xl font-bold transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">All Projects</a>
             <a href="index.html#about" class="text-gray-300 hover:text-white text-3xl font-bold transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About Us</a>
             <a style="display:none;" href="index.html#socials" class="text-gray-300 hover:text-white text-3xl font-bold transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Socials</a>
         </div>
     </header>
 
-    <main class="py-16 bg-gray-800">
+    <main class="py-16">
         <div class="container mx-auto px-6 md:px-12">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-center text-white mb-12">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-center text-accent mb-12">
                 Our Games
             </h1>
-
             <div class="space-y-10">
                 <!-- Game Tile 1: Project: [Your Next Game] -->
                 <div class="game-tile">
@@ -186,11 +192,11 @@
         </div>
     </main>
 
-    <!-- Footer (Copied from main site) -->
-    <footer class="bg-gray-900 py-8 px-6 md:px-12 text-center text-gray-500 text-sm">
+    <!-- Footer -->
+    <footer class="bg-[#1e1e1e] py-8 px-6 md:px-12 text-center text-gray-500 text-sm">
         <div class="container mx-auto">
-            <p>&copy; 2024 CSB Software. All rights reserved.</p>
-            <p class="mt-2">Crafted with passion for gamers and creators everywhere.</p>
+            <p>&copy; 2025 CSB Software. All rights reserved.</p>
+            <p class="mt-2">Forged in the heart of the mountain.</p>
         </div>
     </footer>
 
